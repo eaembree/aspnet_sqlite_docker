@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MvcMovie.Data;
+using MvcMovie.Extensions;
 
 namespace MvcMovie
 {
@@ -13,7 +15,9 @@ namespace MvcMovie
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build()
+                .CreateDatabase<MvcMovieContext>()
+                .Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
