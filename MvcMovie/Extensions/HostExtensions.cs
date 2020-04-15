@@ -8,6 +8,7 @@ namespace MvcMovie.Extensions
 {
     public static class HostExtensions
     {
+        // Idea borrowed from https://c-sharpcorner.com/article/entity-framework-core-in-docker-container-part-ii-sqlite
         public static IHost CreateDatabase<T>(this IHost host) where T : DbContext
         {
             using (var scope = host.Services.CreateScope())
